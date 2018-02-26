@@ -22,6 +22,7 @@ public class Projections2D {
     public static final int AVERAGE_IGNORING_ZEROS = Kernel_group2DProject.AVERAGE_IGNORING_ZEROS;
     public static final int STDDEV_IGNORING_ZEROS = Kernel_group2DProject.STDDEV_IGNORING_ZEROS;
     public static final int MAX = Kernel_group2DProject.MAX;
+    public static final int MIN = Kernel_group2DProject.MIN;
 
     private static Kernel_group2DProject kernel_group2DProject = new Kernel_group2DProject();
 
@@ -74,6 +75,7 @@ class Kernel_group2DProject extends NJKernel {
     public static final int AVERAGE_IGNORING_ZEROS = 4;
     public static final int STDDEV_IGNORING_ZEROS = 5;
     public static final int MAX = 6;
+    public static final int MIN = 7;
 
     private float[] pixelsOriginal, pixelsProjection, weights;
     private int mode, framesPerGroup, nGroups, nFramesOriginal,
@@ -183,6 +185,8 @@ class Kernel_group2DProject extends NJKernel {
             pixelsProjection[getIdxP(x, y, g)] = sqrt(getVarianceIgnoringZeros(x, y, tStart, tEnd));
         else if (mode == MAX)
             pixelsProjection[getIdxP(x, y, g)] = getMax(x, y, tStart, tEnd);
+        else if (mode == MIN)
+            pixelsProjection[getIdxP(x, y, g)] = getMin(x, y, tStart, tEnd);
     }
 
     private float getAverage(int x, int y, int tStart, int tEnd) {
@@ -251,6 +255,17 @@ class Kernel_group2DProject extends NJKernel {
              if(pixelsOriginal[getIdxO(x, y, t)]>v){
                  v=pixelsOriginal[getIdxO(x, y, t)];
              }
+        }
+        return v;
+    }
+
+    private float getMin(int x, int y, int tStart, int tEnd){
+
+        float v=Float.MAX_VALUE;
+        for (int t=tStart; t<tEnd; t++) {
+            if(pixelsOriginal[getIdxO(x, y, t)]<v){
+                v=pixelsOriginal[getIdxO(x, y, t)];
+            }
         }
         return v;
     }
