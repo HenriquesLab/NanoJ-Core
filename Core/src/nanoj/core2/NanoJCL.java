@@ -41,4 +41,24 @@ public class NanoJCL {
             ims.addSlice(new FloatProcessor(w, h, data));
         }
     }
+
+    /**
+     * Replaces the first subsequence of the <tt>source</tt> string that matches
+     * the literal target string with the specified literal replacement string.
+     *
+     * @param source source string on which the replacement is made
+     * @param target the string to be replaced
+     * @param replacement the replacement string
+     * @return the resulting string
+     */
+    public static String replaceFirst(String source, String target, String replacement) {
+        int index = source.indexOf(target);
+        if (index == -1) {
+            return source;
+        }
+
+        return source.substring(0, index)
+                .concat(replacement)
+                .concat(source.substring(index+target.length()));
+    }
 }
