@@ -18,6 +18,11 @@ public class NanoJCL {
         for(int n=0; n<ip.getPixelCount(); n++) buffer.put(n, ip.getf(n));
     }
 
+    public static void grabBuffer(CLBuffer<FloatBuffer> clBuffer, float[] data) {
+        FloatBuffer buffer = clBuffer.getBuffer();
+        for(int n=0; n<data.length; n++) data[n] = buffer.get(n);
+    }
+
     public static void grabBuffer(CLBuffer<FloatBuffer> clBuffer, FloatProcessor fp) {
         FloatBuffer buffer = clBuffer.getBuffer();
         for(int n=0; n<fp.getPixelCount(); n++) fp.setf(n, buffer.get(n));
