@@ -1,6 +1,7 @@
 package nanoj.core2;
 
 import com.jogamp.opencl.CLBuffer;
+import ij.ImageStack;
 import ij.process.FloatProcessor;
 import ij.process.ImageProcessor;
 
@@ -26,5 +27,18 @@ public class NanoJCL {
     public static void grabBuffer(CLBuffer<FloatBuffer> clBuffer, FloatProcessor fp) {
         FloatBuffer buffer = clBuffer.getBuffer();
         for(int n=0; n<fp.getPixelCount(); n++) fp.setf(n, buffer.get(n));
+    }
+
+    public static void grabBuffer(CLBuffer<FloatBuffer> clBuffer, ImageStack ims, int nFrames) {
+        int w = ims.getWidth();
+        int h = ims.getHeight();
+        int wh = w * h;
+        FloatBuffer buffer = clBuffer.getBuffer();
+        for (int f=0; f<nFrames; f++) {
+            int offset = f * wh;
+            float[] data = new float[wh];
+            for(int n=0; n<wh; n++) data[n] = buffer.get(n + offset);
+            ims.addSlice(new FloatProcessor(w, h, data));
+        }
     }
 }
