@@ -5,6 +5,9 @@ import ij.ImageStack;
 import ij.process.FloatProcessor;
 import ij.process.ImageProcessor;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.FloatBuffer;
 
 public class NanoJCL {
@@ -60,5 +63,27 @@ public class NanoJCL {
         return source.substring(0, index)
                 .concat(replacement)
                 .concat(source.substring(index+target.length()));
+    }
+
+    private static String inputStreamToString(InputStream inputStream) throws IOException {
+        ByteArrayOutputStream result = new ByteArrayOutputStream();
+        byte[] buffer = new byte[1024];
+        int length;
+        while ((length = inputStream.read(buffer)) != -1) {
+            result.write(buffer, 0, length);
+        }
+        // StandardCharsets.UTF_8.name() > JDK 7
+        return result.toString("UTF-8");
+    }
+
+    public static String getResourceAsString(Class c, String resourceName) {
+        InputStream programStream = c.getResourceAsStream("/"+resourceName);
+        String programString = "";
+        try {
+            programString = inputStreamToString(programStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return programString;
     }
 }
