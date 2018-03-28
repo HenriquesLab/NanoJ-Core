@@ -22,9 +22,12 @@ public class NanoJCL {
         for(int n=0; n<ip.getPixelCount(); n++) buffer.put(n, ip.getf(n));
     }
 
-    public static void grabBuffer(CLBuffer<FloatBuffer> clBuffer, float[] data) {
+    public static void grabBuffer(CLBuffer<FloatBuffer> clBuffer, float[] data, boolean NaN2Zero) {
         FloatBuffer buffer = clBuffer.getBuffer();
-        for(int n=0; n<data.length; n++) data[n] = buffer.get(n);
+        for(int n=0; n<data.length; n++) {
+            data[n] = buffer.get(n);
+            if (NaN2Zero && Float.isNaN(data[n])) data[n] = 0;
+        }
     }
 
     public static void grabBuffer(CLBuffer<FloatBuffer> clBuffer, FloatProcessor fp) {
