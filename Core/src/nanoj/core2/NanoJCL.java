@@ -22,6 +22,16 @@ public class NanoJCL {
         for(int n=0; n<ip.getPixelCount(); n++) buffer.put(n, ip.getf(n));
     }
 
+    public static void fillBuffer(CLBuffer<FloatBuffer> clBuffer, ImageStack ims) {
+        FloatBuffer buffer = clBuffer.getBuffer();
+        int nSlices = ims.getSize();
+        for (int s=1; s<=nSlices; s++) {
+            float[] data = (float[]) ims.getProcessor(s).convertToFloatProcessor().getPixels();
+            int fOffset = (s-1)*data.length;
+            for(int n=0; n<data.length; n++) buffer.put(n+fOffset, data[n]);
+        }
+    }
+
     public static void grabBuffer(CLBuffer<FloatBuffer> clBuffer, float[] data, boolean NaN2Zero) {
         FloatBuffer buffer = clBuffer.getBuffer();
         for(int n=0; n<data.length; n++) {
