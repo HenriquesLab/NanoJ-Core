@@ -1,5 +1,7 @@
 # NanoJ-Core - ImageJ Plugin #
 
+**News** - we will soon add a manual for the **Drift Correction** and **Channel Alignment** features.
+
 The super-resolution microscopy field is now populated by a rich collection of data analysis packages based on Matlab, Python, Java and C/C++ approaches among others. However, the Java based [ImageJ](http://imagej.net/Welcome) remains the most popular frontend for image based analysis among biologists. 
 
 In 2010 we published the first open-source ImageJ based 3D SMLM analysis package – [QuickPALM](http://www.nature.com/nmeth/journal/v7/n5/full/nmeth0510-339.html) – rapidly becoming one of the most popular algorithms in the field, due to its simplicity of use, speed and ImageJ integration. Based on the same philosophy, we have been developing a new analytical engine for ImageJ, named NanoJ, capable of seamlessly providing the capacity to run high-performance computing super-resolution data analysis by dynamically switching between CPU and GPU massive parallelisation, but remaining extremely easy to use by non-specialised researchers. 
