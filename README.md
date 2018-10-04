@@ -9,25 +9,25 @@
 ## Install NanoJ-Core ##
 
 
-NanoJ-Core is available as an ImageJ/Fiji (from here on ImageJ) plugin. The installation proceeds thought the ImageJ updater: open ImageJ and select “Update” in the “Help”-menu.
+NanoJ-Core is available as an ImageJ/Fiji (from here on ImageJ) plugin. The installation proceeds thought the ImageJ updater: open ImageJ and select “Update” in the “Help”-menu.  
 
-![alt text](https://user-images.githubusercontent.com/34708291/46486258-45659400-c7f5-11e8-9b31-acb07da686d4.png) 
+![alt text](https://user-images.githubusercontent.com/34708291/46486258-45659400-c7f5-11e8-9b31-acb07da686d4.png)   
  
-Regardless if other updates are available or not, press the “Manage update sites”-button on the Updater window (indicated in red). 
+Regardless if other updates are available or not, press the “Manage update sites”-button on the Updater window (indicated in red).   
  
-![alt text](https://user-images.githubusercontent.com/34708291/46486262-47c7ee00-c7f5-11e8-9045-5fe2e10246c4.png)
+![alt text](https://user-images.githubusercontent.com/34708291/46486262-47c7ee00-c7f5-11e8-9045-5fe2e10246c4.png)  
  
 Then, scroll down the list of update sites, click on the tick-box next to “NanoJ-Core" and click the “Close” button (in red). 
  
-![alt text](https://user-images.githubusercontent.com/34708291/46486269-4c8ca200-c7f5-11e8-9585-0d64bd22276a.png) 
+![alt text](https://user-images.githubusercontent.com/34708291/46486269-4c8ca200-c7f5-11e8-9585-0d64bd22276a.png)     
+   
+Finally, click “Apply changes” (in red) in the Updater window, close and then restart ImageJ.  
+   
+![alt text](https://user-images.githubusercontent.com/34708291/46486272-4e566580-c7f5-11e8-8304-c16d093bf883.png)  
  
-Finally, click “Apply changes” (in red) in the Updater window, close and then restart ImageJ.
- 
-![alt text](https://user-images.githubusercontent.com/34708291/46486272-4e566580-c7f5-11e8-8304-c16d093bf883.png)
- 
-You can find NanoJ-Core under the “Plugins” menu.
+You can find NanoJ-Core under the “Plugins” menu.  
 
-![alt text](https://user-images.githubusercontent.com/34708291/46486274-4f879280-c7f5-11e8-8947-d69e94d90004.png)
+![alt text](https://user-images.githubusercontent.com/34708291/46486274-4f879280-c7f5-11e8-8947-d69e94d90004.png)  
 
 
 Click the video below to watch...
