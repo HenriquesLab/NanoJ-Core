@@ -84,10 +84,10 @@ public class ChannelRealignment_Apply_ extends _BaseDialog_ {
         String title = imp.getTitle();
         if (title.endsWith(".tif")) {
             title = title.substring(0,title.length()-4);
-            title = title + " - Realigned";
+            title = title + " - Registered";
         }
         else{
-            title = title + " - Realigned";
+            title = title + " - Registered";
         }
         new ImagePlus(title, imsRealigned).show();
     }

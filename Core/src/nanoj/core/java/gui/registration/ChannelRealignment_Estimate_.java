@@ -40,7 +40,7 @@ public class ChannelRealignment_Estimate_ extends _BaseDialog_ {
         w = imp.getWidth();
         h = imp.getHeight();
 
-        gd = new NonBlockingGenericDialog("Estimate Channel Realignent...");
+        gd = new NonBlockingGenericDialog("Estimate Channel Registration...");
         gd.addNumericField("Reference channel", getPrefs("refChannel", 1), 0);
         gd.addNumericField("Number of channels in dataset", getPrefs("nChannels", 2), 0);
         gd.addNumericField("Max expected shift (default: 0, 0 - auto)", getPrefs("maxShift", 0), 0);
@@ -126,7 +126,7 @@ public class ChannelRealignment_Estimate_ extends _BaseDialog_ {
             imsRealigned.addSlice(fpRealigned);
         }
 
-        if (impPreview == null) impPreview = new ImagePlus("Slices Realigned", imsRealigned);
+        if (impPreview == null) impPreview = new ImagePlus("Registered Slices", imsRealigned);
         else impPreview.setStack(imsRealigned);
         impPreview.show();
 
@@ -179,6 +179,6 @@ public class ChannelRealignment_Estimate_ extends _BaseDialog_ {
             }
         }
         new ImagePlus(imp.getTitle()+" - TranslationMask", imsTranslationMask).show();
-        if (doApply) new ImagePlus(imp.getTitle()+" - Realigned", imsRealigned).show();
+        if (doApply) new ImagePlus(imp.getTitle()+" - Registered", imsRealigned).show();
     }
 }
