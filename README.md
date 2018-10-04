@@ -12,3 +12,21 @@ of [NanoJ-SRRF](https://bitbucket.org/rhenriqueslab/nanoj-srrf) – the successo
 ## About NanoJ-Core ##
 
 **NanoJ-Core** and **[NanoJ-Updater](https://bitbucket.org/rhenriqueslab/nanoj-updater)** provide the base high-performance computing engine that other NanoJ plugins (e.g.: SRRF, VirusMapper) need to run. **NanoJ** is developed by the [Henriques laboratory](http://www.ucl.ac.uk/lmcb/users/ricardo-henriques) in the [MRC Laboratory for Molecular Cell Biology](http://www.ucl.ac.uk/lmcb/) at [University College London](http://www.ucl.ac.uk/).
+
+## Installation of NanoJ-Core ##
+
+**NanoJ-Core** is available as an ImageJ/Fiji plugin. The installation proceeds thought the ImageJ updater: open ImageJ, and select “Update” in the “Help”-menu.
+
+
+
+Regardless if other updates are available or not, press the “Manage update sites”-button on the Updater window (indicated in red). 
+ 
+
+Then, scroll down the list of update sites, click on the tick-box next to “NanoJ-Core" and click the “Close” button (in red). 
+ 
+Finally, click “Apply changes” (in red) in the Updater window, close and then restart ImageJ.
+ 
+
+You can find NanoJ-Core under the “Plugins” menu.
+ 
+ 
