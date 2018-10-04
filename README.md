@@ -8,6 +8,8 @@
 
 ## Install NanoJ-Core ##
 
+![alt text](https://user-images.githubusercontent.com/34708291/46486258-45659400-c7f5-11e8-9b31-acb07da686d4.png)
+
 Click the video below to watch...
 
 [![Click to watch](https://img.youtube.com/vi/qpg-VdQ4NtE/0.jpg)](https://www.youtube.com/watch?v=qpg-VdQ4NtE)
