@@ -6,9 +6,9 @@
 
 [![NanoJ Pre-Print](https://pbs.twimg.com/media/Doez3mnXsAA_RxN.jpg "NanoJ Pre-Print")](https://www.biorxiv.org/content/early/2018/10/01/432674)
 
-## Installation of NanoJ-Core ##
+## Install NanoJ-Core ##
 
-Click the image below to watch...
+Click the video below to watch...
 
 [![Click to watch](https://img.youtube.com/vi/qpg-VdQ4NtE/0.jpg)](https://www.youtube.com/watch?v=qpg-VdQ4NtE)
 
