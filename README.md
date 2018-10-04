@@ -17,7 +17,7 @@ of [NanoJ-SRRF](https://bitbucket.org/rhenriqueslab/nanoj-srrf) – the successo
 
 **NanoJ-Core** is available as an ImageJ/Fiji plugin. The installation proceeds thought the ImageJ updater: open ImageJ, and select “Update” in the “Help”-menu.
 
-![bla][0]
+[bla][0]
 
 Regardless if other updates are available or not, press the “Manage update sites”-button on the Updater window (indicated in red). 
 
