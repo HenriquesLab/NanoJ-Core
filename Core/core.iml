@@ -8,5 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="Updater" />
+    <orderEntry type="library" name="Fiji.jars" level="project" />
   </component>
 </module>
