@@ -4,7 +4,6 @@ import ij.IJ;
 import ij.ImagePlus;
 import ij.gui.NonBlockingGenericDialog;
 import nanoj.core.java.io.LoadNanoJTable;
-import nanoj.srrf.java.ApplyDriftCorrection;
 
 import java.io.IOException;
 import java.util.Map;
