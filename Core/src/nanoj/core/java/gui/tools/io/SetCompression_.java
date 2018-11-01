@@ -24,7 +24,7 @@ public class SetCompression_ extends _BaseDialog_ {
 
     @Override
     public void setupDialog() {
-        gd = new NonBlockingGenericDialog("Set compression level for NJB and NJI files...");
+        gd = new NonBlockingGenericDialog("Set compression level for NJI files...");
         gd.addSlider("Compression level", 0, 9, prefs.getCompressionLevel());
     }
 
