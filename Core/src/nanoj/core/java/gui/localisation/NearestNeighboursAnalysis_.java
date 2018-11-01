@@ -1,5 +1,6 @@
 package nanoj.core.java.gui.localisation;
 
+import ij.IJ;
 import ij.ImagePlus;
 import ij.gui.HistogramWindow;
 import ij.gui.NonBlockingGenericDialog;
@@ -75,6 +76,7 @@ public class NearestNeighboursAnalysis_ extends _BaseDialog_ {
 
         Polygon plg = MF.getMaxima(ip, tolerance, true);
         PointRoi roi = new PointRoi(plg);
+        roi.setPointType(2);
 
         imp.setRoi(roi);
 
@@ -114,6 +116,8 @@ public class NearestNeighboursAnalysis_ extends _BaseDialog_ {
         ImagePlus impVoronoi = new ImagePlus("Nearest Neighbours Voronoi (nm)", ipVoronoi);
 
         impVoronoi.show();
+        IJ.run("Fire");
+        impVoronoi.setRoi(roi);
 
     }
 
@@ -123,6 +127,7 @@ public class NearestNeighboursAnalysis_ extends _BaseDialog_ {
 
             Polygon plg = MF.getMaxima(ip, tolerance, true);
             PointRoi roi = new PointRoi(plg);
+            roi.setPointType(2);
 
             imp.setRoi(roi);
         }

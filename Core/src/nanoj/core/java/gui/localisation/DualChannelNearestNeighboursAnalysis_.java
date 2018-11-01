@@ -54,11 +54,10 @@ public class DualChannelNearestNeighboursAnalysis_ extends _BaseDialog_ {
         gd = new NonBlockingGenericDialog("Nearest Neighbour Analysis");
         gd.addNumericField("Tolerance Ch1", getPrefs("tolerance1", 10), 2);
         gd.addNumericField("Tolerance Ch2", getPrefs("tolerance2", 10), 2);
+        gd.addNumericField("Number of bins", getPrefs("nBins", 100), 0);
+        gd.addNumericField("Pixel size (nm)", getPrefs("pixelSize", 100), 1);
         gd.addCheckbox("Show peaks Ch1", true);
         gd.addCheckbox("Show peaks Ch2", true);
-
-        gd.addNumericField("Number of bins", getPrefs("nBins", 100), 0);
-        gd.addNumericField("Pixel size (nm)", getPrefs("pixelSize", 100), 0);
         //gd.addSlider("Reference channel", 1, 2, 1);
         gd.addCheckbox("Preview point selection", false);
     }
@@ -96,15 +95,18 @@ public class DualChannelNearestNeighboursAnalysis_ extends _BaseDialog_ {
         Polygon plg0 = MF.getMaxima(ip0, tolerance1, true);
         PointRoi roi0 = new PointRoi(plg0);
         roi0.setStrokeColor(Color.YELLOW);
+        roi0.setPointType(2);
+        roi0.setPosition(1);
 
         Polygon plg1 = MF.getMaxima(ip1, tolerance2, true);
         PointRoi roi1 = new PointRoi(plg1);
         roi1.setStrokeColor(Color.MAGENTA);
+        roi1.setPointType(2);
+        roi1.setPosition(2);
 
         RoiManager rm = ExtractRois.getRoiManager();
         if (show1) rm.addRoi(roi0);
         if (show2) rm.addRoi(roi1);
-        //rm.runCommand("Associate", "false");
 
         // Get peak info
         float[] xps0 = intToFloat(plg0.xpoints);
@@ -187,6 +189,8 @@ public class DualChannelNearestNeighboursAnalysis_ extends _BaseDialog_ {
         ImagePlus impVoronoi = new ImagePlus("Nearest neighbours Voronoi (nm)", imsVoronoi);
         impVoronoi.show();
         IJ.run("Fire");
+        impVoronoi.setRoi(roi1);
+        impVoronoi.setRoi(roi0);
 
     }
 
@@ -203,15 +207,16 @@ public class DualChannelNearestNeighboursAnalysis_ extends _BaseDialog_ {
             Polygon plg0 = MF.getMaxima(ip0, tolerance1, true);
             PointRoi roi0 = new PointRoi(plg0);
             roi0.setStrokeColor(Color.YELLOW);
+            roi0.setPointType(2);
 
             Polygon plg1 = MF.getMaxima(ip1, tolerance2, true);
             PointRoi roi1 = new PointRoi(plg1);
             roi1.setStrokeColor(Color.MAGENTA);
+            roi1.setPointType(2);
 
             RoiManager rm = ExtractRois.getRoiManager();
             if (show1) rm.addRoi(roi0);
             if (show2) rm.addRoi(roi1);
-            rm.runCommand("Associate", "false");
         }
 
     }
