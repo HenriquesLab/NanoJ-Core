@@ -14,14 +14,17 @@ public class Version extends _Version_ {
     // NanoJ nanoj.core.java.Version
     protected final static String tagInPrefs = "NJ.core.version";
     protected final static int major = 2;
-    protected final static int minor = 0;
+    protected final static int minor = 1;
     protected final static int status = 2; // 0 - alpha, 1 - beta, 2 - release candidate, 3 - stable
     protected final static int release = 1;
     protected final static String codename = "";
     public final static String header = "NanoJ: ";
     public final static String WHATS_NEW =
             "What's new in NanoJ-Core " + headlessGetVersion() + ":\n" +
-                    "- Adding new 2.0 engine version.";
+                    "- Slight rearrangement of the menu \n " +
+                    "- Drift correction migrated into core from SRRF \n" +
+                    "- Nearest neighbour analysis had a makeover \n" +
+                    "- Link to manual now included in menu";
 
     public static String getVersion() {
         return header+headlessGetVersion();
