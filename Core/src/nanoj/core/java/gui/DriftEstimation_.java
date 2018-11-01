@@ -14,7 +14,6 @@ import ij.process.ImageProcessor;
 import nanoj.core.java.array.ArrayInitialization;
 import nanoj.core.java.featureExtraction.ExtractRois;
 import nanoj.core.java.image.transform.CrossCorrelationMap;
-import nanoj.srrf.java.ApplyDriftCorrection;
 
 import java.io.File;
 import java.io.IOException;

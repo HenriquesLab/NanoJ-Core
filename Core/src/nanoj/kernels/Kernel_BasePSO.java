@@ -7,8 +7,8 @@ import ij.gui.Plot;
 import ij.process.Blitter;
 import ij.process.ColorProcessor;
 import ij.process.ImageProcessor;
-import ij3d.Content;
-import ij3d.Image3DUniverse;
+//import ij3d.Content;
+//import ij3d.Image3DUniverse;
 import nanoj.core.java.aparapi.NJKernel;
 import nanoj.core.java.tools.Log;
 import org.scijava.vecmath.Color3f;
@@ -399,53 +399,53 @@ public class Kernel_BasePSO extends NJKernel {
         return imp;
     }
 
-    public ImagePlus plotOptimizationEvolution3D(int w, int h, int varId0, int varId1, int varId2) {
-
-        Image3DUniverse universe = new Image3DUniverse();
-
-        for (int pId = 0; pId < swarmSize; pId++) {
-            Color3f color = new Color3f(generator.nextFloat(), generator.nextFloat(), generator.nextFloat());
-
-            ArrayList<Point3f> pointList = new ArrayList<Point3f>();
-            for (int i = 0; i < nIterations; i++) {
-                float p0 = (float) ((position_particles_history[i][pId * nVariables + varId0] - position_min[varId0]) / (position_max[varId0] - position_min[varId0]));
-                float p1 = (float) ((position_particles_history[i][pId * nVariables + varId1] - position_min[varId1]) / (position_max[varId1] - position_min[varId1]));
-                float p2 = (float) ((position_particles_history[i][pId * nVariables + varId2] - position_min[varId2]) / (position_max[varId2] - position_min[varId2]));
-
-                pointList.add(new Point3f(p0, p1, p2));
-            }
-
-            universe.addPointMesh(pointList, color, 3, "Points Id" + pId);
-            Content lines = universe.addLineMesh(pointList, color, "Lines Id" + pId, true);
-            lines.setTransparency(0.7f);
-        }
-
-        float p0c = (float) ((globalBestPosition[varId0] - position_min[varId0]) / (position_max[varId0] - position_min[varId0]));
-        float p1c = (float) ((globalBestPosition[varId1] - position_min[varId1]) / (position_max[varId1] - position_min[varId1]));
-        float p2c = (float) ((globalBestPosition[varId2] - position_min[varId2]) / (position_max[varId2] - position_min[varId2]));
-
-        universe.centerAt(new Point3d(p0c, p1c, p2c));
-
-        ImageStack ims = new ImageStack(w, h);
-        for (int s=0; s<300; s++) {
-            log.progress(s+1, 300);
-            if (s<100) {
-                universe.rotateY(0.05);
-                universe.getViewPlatformTransformer().zoomTo(max(1d - (s/100d), 0.01));
-            }
-            else if (s<200) {
-                universe.rotateZ(0.02);
-                universe.getViewPlatformTransformer().zoomTo(0.001 / (s-99));
-            }
-            else {
-                universe.rotateX(0.01);
-                universe.getViewPlatformTransformer().zoomTo(0.0005 / (s-99));
-            }
-
-            ims.addSlice(universe.takeSnapshot(w, h).getProcessor());
-        }
-        //universe.show();
-
-        return new ImagePlus("Particle Evolution", ims);
-    }
+//    public ImagePlus plotOptimizationEvolution3D(int w, int h, int varId0, int varId1, int varId2) {
+//
+//        Image3DUniverse universe = new Image3DUniverse();
+//
+//        for (int pId = 0; pId < swarmSize; pId++) {
+//            Color3f color = new Color3f(generator.nextFloat(), generator.nextFloat(), generator.nextFloat());
+//
+//            ArrayList<Point3f> pointList = new ArrayList<Point3f>();
+//            for (int i = 0; i < nIterations; i++) {
+//                float p0 = (float) ((position_particles_history[i][pId * nVariables + varId0] - position_min[varId0]) / (position_max[varId0] - position_min[varId0]));
+//                float p1 = (float) ((position_particles_history[i][pId * nVariables + varId1] - position_min[varId1]) / (position_max[varId1] - position_min[varId1]));
+//                float p2 = (float) ((position_particles_history[i][pId * nVariables + varId2] - position_min[varId2]) / (position_max[varId2] - position_min[varId2]));
+//
+//                pointList.add(new Point3f(p0, p1, p2));
+//            }
+//
+//            universe.addPointMesh(pointList, color, 3, "Points Id" + pId);
+//            Content lines = universe.addLineMesh(pointList, color, "Lines Id" + pId, true);
+//            lines.setTransparency(0.7f);
+//        }
+//
+//        float p0c = (float) ((globalBestPosition[varId0] - position_min[varId0]) / (position_max[varId0] - position_min[varId0]));
+//        float p1c = (float) ((globalBestPosition[varId1] - position_min[varId1]) / (position_max[varId1] - position_min[varId1]));
+//        float p2c = (float) ((globalBestPosition[varId2] - position_min[varId2]) / (position_max[varId2] - position_min[varId2]));
+//
+//        universe.centerAt(new Point3d(p0c, p1c, p2c));
+//
+//        ImageStack ims = new ImageStack(w, h);
+//        for (int s=0; s<300; s++) {
+//            log.progress(s+1, 300);
+//            if (s<100) {
+//                universe.rotateY(0.05);
+//                universe.getViewPlatformTransformer().zoomTo(max(1d - (s/100d), 0.01));
+//            }
+//            else if (s<200) {
+//                universe.rotateZ(0.02);
+//                universe.getViewPlatformTransformer().zoomTo(0.001 / (s-99));
+//            }
+//            else {
+//                universe.rotateX(0.01);
+//                universe.getViewPlatformTransformer().zoomTo(0.0005 / (s-99));
+//            }
+//
+//            ims.addSlice(universe.takeSnapshot(w, h).getProcessor());
+//        }
+//        //universe.show();
+//
+//        return new ImagePlus("Particle Evolution", ims);
+//    }
 }
