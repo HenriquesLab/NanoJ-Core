@@ -21,7 +21,7 @@ public class Version extends _Version_ {
     public final static String header = "NanoJ: ";
     public final static String WHATS_NEW =
             "What's new in NanoJ-Core " + headlessGetVersion() + ":\n" +
-                    "- Slight rearrangement of the menu \n " +
+                    "- Slight rearrangement of the menu \n" +
                     "- Drift correction migrated into core from SRRF \n" +
                     "- Nearest neighbour analysis had a makeover \n" +
                     "- Link to manual now included in menu";
