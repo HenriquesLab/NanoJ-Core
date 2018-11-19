@@ -15,6 +15,7 @@ public class Kernel_NearestNeighbour extends NJKernel {
     private float[] xPositions1;
     private float[] yPositions1;
     private float[] zPositions1;
+    private int allowStationary;
     public float[] nearestDistance;
     public float[] nearestNeighbour;
     int nParticles0, nParticles1, nStart, nEnd;
@@ -25,24 +26,29 @@ public class Kernel_NearestNeighbour extends NJKernel {
     public float[][] calculate(float[] xPositions, float[] yPositions){
         return calculate(
                 xPositions, yPositions, new float[xPositions.length],
-                xPositions, yPositions, new float[xPositions.length]);
+                xPositions, yPositions, new float[xPositions.length],
+                false);
     }
 
     public float[][] calculate(float[] xPositions, float[] yPositions, float[] zPositions){
         return calculate(
                 xPositions, yPositions, zPositions,
-                xPositions, yPositions, zPositions);
+                xPositions, yPositions, zPositions,
+                false);
     }
 
     public float[][] calculate(float[] xPositions0, float[] yPositions0,
-                               float[] xPositions1, float[] yPositions1){
+                               float[] xPositions1, float[] yPositions1,
+                               boolean allowStationary){
         return calculate(
                 xPositions0, yPositions0, new float[xPositions0.length],
-                xPositions1, yPositions1, new float[xPositions1.length]);
+                xPositions1, yPositions1, new float[xPositions1.length],
+                allowStationary);
     }
 
     public float[][] calculate(float[] xPositions0, float[] yPositions0, float[] zPositions0,
-                               float[] xPositions1, float[] yPositions1, float[] zPositions1) {
+                               float[] xPositions1, float[] yPositions1, float[] zPositions1,
+                               boolean allowStationary) {
         this.nParticles0 = xPositions0.length;
         this.nParticles1 = xPositions1.length;
         this.xPositions0 = xPositions0;
@@ -51,6 +57,8 @@ public class Kernel_NearestNeighbour extends NJKernel {
         this.xPositions1 = xPositions1;
         this.yPositions1 = yPositions1;
         this.zPositions1 = zPositions1;
+        if(allowStationary)this.allowStationary = 1;
+        else this.allowStationary = 0;
         this.nearestNeighbour = new float[xPositions0.length];
         this.nearestDistance = new float[xPositions0.length];
         for (int n=0; n<nearestDistance.length; n++) this.nearestDistance[n] = Float.MAX_VALUE;
@@ -102,7 +110,8 @@ public class Kernel_NearestNeighbour extends NJKernel {
             float x1 = xPositions1[p1];
             float y1 = yPositions1[p1];
             float z1 = zPositions1[p1];
-            if (x0 != x1 && y0 != y1 && y0 != y1) {
+
+            if(allowStationary==1){
                 float dx = x0-x1;
                 float dy = y0-y1;
                 float dz = z0-z1;
@@ -112,6 +121,21 @@ public class Kernel_NearestNeighbour extends NJKernel {
                     if (d < smallestDistance) {
                         smallestDistance = d;
                         closestNeighbour = p1;
+                    }
+                }
+            }
+            else {
+                if (x0 != x1 && y0 != y1 && y0 != y1) {
+                    float dx = x0 - x1;
+                    float dy = y0 - y1;
+                    float dz = z0 - z1;
+
+                    if (abs(dx) < smallestDistance && abs(dy) < smallestDistance && abs(dz) < smallestDistance) {
+                        float d = sqrt(pow(dx, 2) + pow(dy, 2) + pow(dz, 2));
+                        if (d < smallestDistance) {
+                            smallestDistance = d;
+                            closestNeighbour = p1;
+                        }
                     }
                 }
             }

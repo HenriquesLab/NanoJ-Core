@@ -115,13 +115,13 @@ public class DualChannelNearestNeighboursAnalysis_ extends _BaseDialog_ {
         float[] yps1 = intToFloat(plg1.ypoints);
 
         // Get nearest neighbour information with channel 1 as reference
-        float[][] nearestCh1ToCh2 = NN.calculate(xps0, yps0, xps1, yps1);
+        float[][] nearestCh1ToCh2 = NN.calculate(xps0, yps0, xps1, yps1, true);
         float[] nearestDistanceCh1ToCh2 = nearestCh1ToCh2[0];
         float[] nearestPositionCh1ToCh2 = nearestCh1ToCh2[1];
         int nPointsCh1 = nearestDistanceCh1ToCh2.length;
 
         // Get nearest neighbour information with channel 2 as reference
-        float[][] nearestCh2ToCh1 = NN.calculate(xps1, yps1, xps0, yps0);
+        float[][] nearestCh2ToCh1 = NN.calculate(xps1, yps1, xps0, yps0, true);
         float[] nearestDistanceCh2ToCh1 = nearestCh2ToCh1[0];
         float[] nearestPositionCh2ToCh1 = nearestCh2ToCh1[1];
         int nPointsCh2 = nearestDistanceCh2ToCh1.length;
