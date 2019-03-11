@@ -13,6 +13,7 @@ import ij.plugin.FolderOpener;
 import ij.plugin.PlugIn;
 import nanoj.core.java.Version;
 import nanoj.core.java.aparapi.CLDevice;
+import nanoj.core.java.aparapi.NJKernel;
 import nanoj.core.java.tools.Log;
 import nanoj.core.java.tools.Prefs;
 import nanoj.updater.java.InstallNanoJDependencies;
