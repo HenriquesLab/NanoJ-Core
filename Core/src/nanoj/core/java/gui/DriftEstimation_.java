@@ -261,7 +261,7 @@ public class DriftEstimation_ extends _BaseDialog_ {
         }
 
         double[] driftXY = new double[nSlices];
-        for (int p=0; p<nSlices; p++) driftXY[p] = (float) sqrt(pow(driftX[p]+driftY[p], 2));
+        for (int p=0; p<nSlices; p++) driftXY[p] = (float) sqrt(pow(driftX[p],2)+pow(driftY[p], 2));
 
         // Create drift table
         log.status("populating drift table...");
