@@ -26,5 +26,5 @@ You can find NanoJ-Core under the “Plugins” menu.
 
 Exciting news! Drift alignment and Channel registration are now accessible in Python through the [NanoPyx](https://github.com/HenriquesLab/NanoPyx) package. This integration brings the power and versatility of NanoJ-Core to Python users, opening up new possibilities for analysis and integration within Python-based workflows.
 
-NanoPyx, a Python package developed in collaboration with the Henriques laboratory, seamlessly integrates NanoJ-Core's image registration capabilities into Python environments. With NanoPyx, users can now leverage NanoJ's high-performance analytical approach within their Python scripts, pipelines, and interactive sessions. Through NanoPyx, NanoJ-Core image registration methods are also available as "codeless" Jupyter Notebooks and a [napari plugin](https://github.com/HenriquesLab/napari-NanoPyx).
+NanoPyx seamlessly integrates NanoJ-Core's image registration capabilities into Python environments. With NanoPyx, users can now leverage NanoJ's high-performance analytical approach within their Python scripts, pipelines, and interactive sessions. Through NanoPyx, NanoJ-Core image registration methods are also available as "codeless" Jupyter Notebooks and a [napari plugin](https://github.com/HenriquesLab/napari-NanoPyx).
 
