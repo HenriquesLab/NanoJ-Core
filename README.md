@@ -23,7 +23,6 @@ You can find NanoJ-Core under the “Plugins” menu.
 ![alt text](https://user-images.githubusercontent.com/34708291/46486274-4f879280-c7f5-11e8-8947-d69e94d90004.png)
 
 ## Image Registration methods in Python ##
-## SRRFing in Python
 
 Exciting news! Drift alignment and Channel registration are now accessible in Python through the [NanoPyx](https://github.com/HenriquesLab/NanoPyx) package. This integration brings the power and versatility of NanoJ-Core to Python users, opening up new possibilities for analysis and integration within Python-based workflows.
 
